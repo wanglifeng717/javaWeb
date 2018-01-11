@@ -3,16 +3,17 @@
     <!-- 配置和映射 Servlet -->
     <servlet>
         <!-- Servlet 注册的名字 -->
-        <servlet-name>helloWorldServlet</servlet-name>
+        <servlet-name>loginServlet</servlet-name>
         <!-- Servlet 的全类名 -->
-        <servlet-class>com.tongji.test.HelloWorldServlet</servlet-class>
+        <servlet-class>com.tongji.test.loginServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
         <!-- 需要和某一个 servlet 节点的 serlvet-name 子节点的文本节点一致 -->
-        <servlet-name> helloWorldServlet</servlet-name>
+        <servlet-name> loginServlet</servlet-name>
         <!-- 映射具体的访问路径: / 代表当前 WEB 应用的根目录. -->
-        <url-pattern>/hello</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    
 </web-app>
