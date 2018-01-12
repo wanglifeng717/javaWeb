@@ -15,14 +15,11 @@
         <servlet-name>loginServlet</servlet-name>
         <!-- Servlet 的全类名 -->
         <servlet-class>com.tongji.test.loginServlet</servlet-class>
-    </servlet>
-    
+    </servlet>   
     <servlet-mapping>
         <!-- 需要和某一个 servlet 节点的 serlvet-name 子节点的文本节点一致 -->
         <servlet-name> loginServlet</servlet-name>
         <!-- 映射具体的访问路径: / 代表当前 WEB 应用的根目录. -->
         <url-pattern>/loginServlet</url-pattern>
-    </servlet-mapping>
-
-    
+    </servlet-mapping>   
 </web-app>

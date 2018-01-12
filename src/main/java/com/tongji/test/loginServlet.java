@@ -11,13 +11,10 @@ package com.tongji.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.ObjectOutputStream.PutField;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**  
 * Title: loginServlet 
@@ -25,65 +22,32 @@ import javax.servlet.ServletResponse;
 * @author mdm(computer in lab)  
 * @date Jan 11, 2018  
 */
-public class loginServlet implements Servlet {
+public class loginServlet extends myHttpServlet {
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
+	/**功能：
+	 * @throws IOException 
+	 * 
 	 */
-	//为了在其他方法里面获得全局的配置参数，我们必须把这个对象拿出来。
-	private  ServletConfig servlerconfig;
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		this.servlerconfig=config;
-	}
-
 	/* (non-Javadoc)
-	 * @see javax.servlet.Servlet#getServletConfig()
+	 * @see com.tongji.test.myHttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	public ServletConfig getServletConfig() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see javax.servlet.Servlet#service(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
-	 */
-	@Override
-	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		ServletContext servletContext = servlerconfig.getServletContext();
-		String initUser = servletContext.getInitParameter("user");
-		String initPassword = servletContext.getInitParameter("password");
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String method = request.getMethod();
+		System.out.println(method);
 		
-		String user = req.getParameter("user");
-		String password = req.getParameter("password");
+		String user = request.getParameter("user");
+		String password = request.getParameter("password");
 		
-		PrintWriter writer = res.getWriter();
-		if(user.equals(initUser) && password.equals(initPassword)) {
-			writer.print("hello "+user+" welcome");
+		String initUser = getServletContext().getInitParameter("user");
+		String initPassword = getServletContext().getInitParameter("password");
+		
+		PrintWriter out = response.getWriter();
+		
+		if(initUser.equals(user) && initPassword.equals(password)) {
+			out.println("hello \n"+user+" you are premitted");
 		} else {
-			writer.println("sorry,"+user+" your wrong!");
+			out.println("sorry \n"+user+" your password or username is wrong");
 		}
-
 	}
-
-	/* (non-Javadoc)
-	 * @see javax.servlet.Servlet#getServletInfo()
-	 */
-	@Override
-	public String getServletInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see javax.servlet.Servlet#destroy()
-	 */
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-
-	}
-
 }
