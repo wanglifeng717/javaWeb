@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-    
-	<context-param>
-	   <param-name>user</param-name>
-	   <param-value>tongji</param-value>
-	</context-param>
-	<context-param>
-       <param-name>password</param-name>
-       <param-value>123</param-value>
-    </context-param>
-	<!-- 配置和映射 Servlet -->
-    <servlet>
-        <!-- Servlet 注册的名字 -->
-        <servlet-name>loginServlet</servlet-name>
-        <!-- Servlet 的全类名 -->
-        <servlet-class>com.tongji.test.loginServlet</servlet-class>
-    </servlet>   
-    <servlet-mapping>
-        <!-- 需要和某一个 servlet 节点的 serlvet-name 子节点的文本节点一致 -->
-        <servlet-name> loginServlet</servlet-name>
-        <!-- 映射具体的访问路径: / 代表当前 WEB 应用的根目录. -->
-        <url-pattern>/loginServlet</url-pattern>
-    </servlet-mapping>   
+  <context-param>
+    <param-name>user</param-name>
+    <param-value>tongji</param-value>
+  </context-param>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>123</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>com.tongji.test.loginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>forwardServlet</display-name>
+    <servlet-name>forwardServlet</servlet-name>
+    <servlet-class>com.tongji.test.ForwardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>forwardServlet</servlet-name>
+    <url-pattern>/forwardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TestServlet</display-name>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>com.tongji.test.TestServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/testServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RedirectServlet</display-name>
+    <servlet-name>RedirectServlet</servlet-name>
+    <servlet-class>com.tongji.test.RedirectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/redirectServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
