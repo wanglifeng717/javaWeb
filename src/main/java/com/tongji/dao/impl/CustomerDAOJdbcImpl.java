@@ -11,6 +11,7 @@ package com.tongji.dao.impl;
 
 import java.util.List;
 
+import com.tongji.dao.CriteriaCustomer;
 import com.tongji.dao.CustomerDAO;
 import com.tongji.dao.DAO;
 import com.tongji.domain.Customer;
@@ -61,6 +62,13 @@ public class CustomerDAOJdbcImpl extends DAO<Customer> implements CustomerDAO{
 				"WHERE id = ?";
 		update(sql, customer.getName(), customer.getAddress(), 
 				customer.getPhone(), customer.getId());
+	}
+
+	@Override
+	public List<Customer> getForListWithCriteriaCustomer(CriteriaCustomer cc) {
+		String sql ="select id,name,address,phone from customers where name like ? and address like ? and phone like ?";
+		
+		return getForList(sql, cc.getName(),cc.getAddress(),cc.getPhone());
 	}
 
 }

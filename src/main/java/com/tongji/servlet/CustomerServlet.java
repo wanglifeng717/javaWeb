@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 
+import com.tongji.dao.CriteriaCustomer;
 import com.tongji.dao.CustomerDAO;
 import com.tongji.dao.impl.CustomerDAOJdbcImpl;
 import com.tongji.domain.Customer;
@@ -64,8 +65,14 @@ public class CustomerServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void query(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		String name=request.getParameter("name");
+		String phone = request.getParameter("phone");
+		String address=request.getParameter("address");
+		
+		CriteriaCustomer criteriaCustomer = new CriteriaCustomer(name, address, phone);
+		
 		//1.调用customerDAO的getAll（）方法，得到customers的集合
-		List<Customer> customers = customerDAO.getAll();
+		List<Customer> customers = customerDAO.getForListWithCriteriaCustomer(criteriaCustomer);
 		//2.把customer的集合放到request中
 		request.setAttribute("customers", customers);
 		//3.转发页面到index.jsp

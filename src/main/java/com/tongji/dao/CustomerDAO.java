@@ -21,7 +21,9 @@ import com.tongji.domain.Customer;
 */
 public interface CustomerDAO {
 
-	
+	//模糊参询的函数，新建查询条件的类CriteriaCustomer，因为我们很多时候的查询条件customer里面不能全部的包含。
+	//所以查询条件单独的封装成一个类。
+	public List<Customer> getForListWithCriteriaCustomer(CriteriaCustomer cc);
 	
 	public List<Customer> getAll();
 	

@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.tongji.dao.CriteriaCustomer;
 import com.tongji.dao.CustomerDAO;
 import com.tongji.dao.impl.CustomerDAOJdbcImpl;
 import com.tongji.domain.Customer;
@@ -61,6 +62,12 @@ public class CustomerDAOJdbcImplTest {
 	public void testGetCountWithName() {
 		long count = customerDAO.getCountWithName("tom");
 		System.out.println(count);
+	}
+	@Test
+	public void testGetForListWithCriteriaCustomer() {
+		CriteriaCustomer criteriaCustomer = new CriteriaCustomer("o", null, null);
+		List<Customer> list = customerDAO.getForListWithCriteriaCustomer(criteriaCustomer);
+		System.out.println(list);
 	}
 
 }
