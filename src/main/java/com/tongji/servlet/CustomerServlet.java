@@ -1,17 +1,13 @@
 package com.tongji.servlet;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 
 import com.tongji.dao.CriteriaCustomer;
 import com.tongji.dao.CustomerDAO;
@@ -55,7 +51,17 @@ public class CustomerServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void delete(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("delete...");
+		String idStr = request.getParameter("id");
+		//这里id=0和放在try里面是很有必要的，一旦你传的id=cc 出现异常，不会执行删除操作,直接转发到原来的界面了，没问题。
+		int id=0;
+		try {
+			id = Integer.parseInt(idStr);
+			customerDAO.delete(id);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		//重定向到查询界面，重新查出里面还有什么记录
+		response.sendRedirect("query.do");
 		
 	}
 
