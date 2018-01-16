@@ -16,6 +16,8 @@
     <br>
     <%} %>
     <form action="addCustomer.do" method="post">
+    
+        
         <table>
             <tr>
                 <td>CustomerName:</td>
