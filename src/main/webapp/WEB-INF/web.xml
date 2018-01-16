@@ -8,6 +8,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CustomerServlet</servlet-name>
-    <url-pattern>/customerServlet</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

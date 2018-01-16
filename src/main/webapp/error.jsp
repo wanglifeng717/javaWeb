@@ -7,13 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <a href="addCustomer.do">Add</a>
-    <br>
-     <a href="query.do">Query</a>
-    <br>
-     <a href="delete.do">Delete</a>
-    <br>
-    
 
+<h4>对不起，没有您请求的页面。</h4>
 </body>
 </html>

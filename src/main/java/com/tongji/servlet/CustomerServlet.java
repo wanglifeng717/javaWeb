@@ -1,6 +1,9 @@
 package com.tongji.servlet;
 
-import java.io.IOException;import java.lang.reflect.Modifier;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,22 +25,21 @@ public class CustomerServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String method =request.getParameter("method");
+		String servletPath = request.getServletPath();
+		String methodName = servletPath.substring(1,servletPath.indexOf("."));
 		
-		switch (method) {
-		case "add":
-			add(request,response);
-			break;
-		case "query":
-			query(request,response);
-			break;
-		case "delete":
-			delete(request,response);
-			break;
-
+		try {
+			Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class,HttpServletResponse.class);
+			method.invoke(this, request,response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			//如果没有那个方法，就从定向到一个错误页面
+			response.sendRedirect("error.jsp");
+			
 		}
-	
 	}
+	
+	
 
 	/**功能：
 	 * 
@@ -45,7 +47,7 @@ public class CustomerServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void delete(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("delete");
+		System.out.println("delete...");
 		
 	}
 
@@ -55,7 +57,7 @@ public class CustomerServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void query(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("query");
+		System.out.println("query...");
 		
 	}
 
@@ -64,8 +66,8 @@ public class CustomerServlet extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void add(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("add");
+	private void addCustomer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		System.out.println("add...");
 		
 	}
 
