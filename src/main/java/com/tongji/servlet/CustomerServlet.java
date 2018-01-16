@@ -92,7 +92,41 @@ public class CustomerServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void addCustomer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("add...");
+		//1. 获取表单参数: name, address, phone
+				String name = request.getParameter("name");
+				String address = request.getParameter("address");
+				String phone = request.getParameter("phone");
+				
+				//2. 检验 name 是否已经被占用:
+				
+				//2.1 调用 CustomerDAO 的 getCountWithName(String name) 获取 name 在数据库中是否存在
+				long count = customerDAO.getCountWithName(name);
+				
+				//2.2 若返回值大于 0, 则响应 newcustomer.jsp 页面: 
+				//通过转发的方式来响应 newcustomer.jsp
+				if(count > 0){
+					//2.2.1 要求再 newcustomer.jsp 页面显示一个错误消息: 用户名 name 已经被占用, 请重新选择!
+					//在 request 中放入一个属性 message: 用户名 name 已经被占用, 请重新选择!, 
+					//在页面上通过 request.getAttribute("message") 的方式来显示
+					request.setAttribute("message", "用户名" + name + "已经被占用, 请重新选择!");
+					
+					//2.2.2 newcustomer.jsp 的表单值可以回显. 
+					//通过 value="<%= request.getParameter("name") == null ? "" : request.getParameter("name") %>"
+					//来进行回显
+					//2.2.3 结束方法: return 
+					request.getRequestDispatcher("/newCustomer.jsp").forward(request, response);
+					return;
+				}
+				
+				//3. 若验证通过, 则把表单参数封装为一个 Customer 对象 customer
+				Customer customer = new Customer(name, address, phone);
+				
+				//4. 调用 CustomerDAO 的  save(Customer customer) 执行保存操作
+				customerDAO.save(customer);
+				
+				//5. 重定向到 success.jsp 页面: 使用重定向可以避免出现表单的重复提交问题.  
+				response.sendRedirect("success.jsp");
+				//request.getRequestDispatcher("/success.jsp").forward(request, response);
 		
 	}
 

@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td><input type="submit" value="Query"/></td>
-                <td><a href="newcustomer.jsp">Add New Customer</a></td>
+                <td><a href="newCustomer.jsp">Add New Customer</a></td>
             </tr>
         </table>
     </form>
