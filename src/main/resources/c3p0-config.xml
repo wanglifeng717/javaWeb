@@ -1,0 +1,24 @@
+<c3p0-config>
+
+    <named-config name="mvcapp">
+    <!-- 指定连接数据源的基本属性 -->
+    <property name="user">root</property>
+    <property name="password">root</property>
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/mydata</property>
+        <!-- 若数据库中连接数不足时，一次向数据库服务器申请多少个连接-->
+        <property name="acquireIncrement">5</property>
+        <!-- 初始化数据库连接时连接的数量 -->
+        <property name="initialPoolSize">5</property>
+        <!-- 指定连接池中的最小连接数-->
+        <property name="minPoolSize">5</property>
+        <!-- 指定连接数据源的最大连接数 -->
+        <property name="maxPoolSize">10</property>
+
+        <!-- c3p0数据库连接池可以维护的statement的个数 -->
+        <property name="maxStatements">20</property>
+        <!-- 每个连接同时可以使用的statement对象个数 -->
+        <property name="maxStatementsPerConnection">5</property>
+    
+    </named-config>
+</c3p0-config>
