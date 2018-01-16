@@ -10,4 +10,10 @@
     <servlet-name>CustomerServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.tongji.servlet.InitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
 </web-app>

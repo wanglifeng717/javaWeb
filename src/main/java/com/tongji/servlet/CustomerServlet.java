@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tongji.dao.CriteriaCustomer;
 import com.tongji.dao.CustomerDAO;
+import com.tongji.dao.factory.CustomerDAOFactory;
 import com.tongji.dao.impl.CustomerDAOJdbcImpl;
 import com.tongji.domain.Customer;
 
@@ -21,7 +22,10 @@ public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	//通过DAO进行增删改查的操作。
-	private CustomerDAO customerDAO =new CustomerDAOJdbcImpl();
+	//private CustomerDAO customerDAO =new CustomerDAOJdbcImpl();
+	//通过读取配置文件的方式。
+	private CustomerDAO customerDAO = 
+			CustomerDAOFactory.getInstance().getCustomerDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
