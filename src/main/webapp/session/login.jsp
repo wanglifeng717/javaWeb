@@ -26,7 +26,7 @@
        }
     %>
     
-    <form action="hello.jsp" method="get">
+    <form action="<%= response.encodeURL("hello.jsp") %>" method="get">
         username:<input type="text" name="username" value ="<%= username %>"/>
         <input type="submit" value="submit">
     </form>
