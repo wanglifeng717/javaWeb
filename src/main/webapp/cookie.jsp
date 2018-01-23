@@ -19,8 +19,9 @@
                 //2. 获取 Cookie 的 name 和 value
                 out.print(cookie.getName() + ": " + cookie.getValue());
                 out.print("<br>"); 
+               
             }
-        }else{
+        }else  {
             out.print("没有一个 Cookie, 正在创建并返回");
             //1. 创建一个 Cookie 对象
             Cookie cookie = new Cookie("name", "atguigu");
