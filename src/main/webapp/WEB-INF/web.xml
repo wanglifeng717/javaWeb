@@ -30,4 +30,24 @@
     <servlet-name>TokenServlet</servlet-name>
     <url-pattern>/tokenServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>validateColorServlet</servlet-name>
+    <servlet-class>com.tongji.utils.ValidateColorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>validateColorServlet</servlet-name>
+    <url-pattern>/validateColorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckCodeServlet</display-name>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <servlet-class>com.tongji.javaWeb.CheckCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckCodeServlet</servlet-name>
+    <url-pattern>/checkCodeServlet</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
