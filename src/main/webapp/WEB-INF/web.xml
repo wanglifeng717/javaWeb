@@ -20,4 +20,14 @@
     <servlet-name>ProcessStep2Servlet</servlet-name>
     <url-pattern>/processStep2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TokenServlet</display-name>
+    <servlet-name>TokenServlet</servlet-name>
+    <servlet-class>com.tongji.javaWeb.TokenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TokenServlet</servlet-name>
+    <url-pattern>/tokenServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
