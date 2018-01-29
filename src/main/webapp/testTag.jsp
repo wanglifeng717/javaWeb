@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <atguigu:hello/>
+    <!-- 可以通过url的方式把值传进来http://localhost:8080/javaWeb/testTag.jsp?name=java -->
+    <atguigu:hello value="${param.name}" count="5"/>
 </body>
 </html> 

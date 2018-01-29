@@ -26,7 +26,23 @@
         <!-- 标签体的类型 -->
         <body-content>empty</body-content>
 
-        
+        <!-- 描述当前标签的属性 -->
+        <attribute>
+            <!-- 属性名 -->
+            <name>value</name>
+            <!-- 该属性是否被必须 ，在页面上写的时候会自动补全出来，不写是会报错的。-->
+            <required>true</required>
+            <!-- rtexprvalue: runtime expression value 当前属性是否可以接受运行时表达式的动态值
+                                          例如：在页面上写的时候：<atguigu:hello value= ${para.name} />
+             -->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>count</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
     </tag>
 
 </taglib>  
