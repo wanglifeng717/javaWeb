@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+    <!-- 描述 TLD 文件 -->
+    <description>MyTag 1.0 core library</description>
+    <display-name>MyTag core</display-name>
+    <tlib-version>1.0</tlib-version>
+
+    <!-- 建议在 JSP 页面上使用的标签的前缀 -->
+    <short-name>atguigu</short-name>
+    <!-- 作为 tld 文件的 id, 用来唯一标识当前的 TLD 文件, 多个 tld 文件的 URI 不能重复. 通过 JSP 页面的 taglib 
+        标签的 uri 属性来引用. -->
+    <uri>http://www.atguigu.com/mytag/core</uri>
+
+    
+    <!-- 描述自定义的 HelloSimpleTag 标签 -->
+    <tag>
+        <!-- 标签的名字: 在 JSP 页面上使用标签时的名字 -->
+        <name>hello</name>
+
+        <!-- 标签所在的全类名 -->
+        <tag-class>com.tongji.tag.HelloSimpleTag</tag-class>
+        <!-- 标签体的类型 -->
+        <body-content>empty</body-content>
+
+        
+    </tag>
+
+</taglib>  
