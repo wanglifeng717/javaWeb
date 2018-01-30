@@ -74,5 +74,14 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <!-- 测试JSPFragment的功能 -->
+    <tag>
+        <name>TestJspFragment</name>
+        <tag-class>com.tongji.tag.TestJspFragment</tag-class>
+        <!--  -->
+        <body-content>scriptless</body-content>
+    
+    </tag>
 
 </taglib>  
