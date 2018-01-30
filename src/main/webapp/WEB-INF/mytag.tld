@@ -44,5 +44,35 @@
             <rtexprvalue>false</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>max</name>
+        <tag-class>com.tongji.tag.MaxTag</tag-class>
+        <body-content>empty</body-content>
+        
+        <attribute>
+            <name>num1</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>num2</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>readerFile</name>
+        <tag-class>com.tongji.tag.ReadFileTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>src</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>  

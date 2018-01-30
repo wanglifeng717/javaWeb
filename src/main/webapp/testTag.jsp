@@ -10,7 +10,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+    
+    <atguigu:readerFile src="el.jsp"/>
+    <br>
+    <!-- url访问：http://localhost:8080/javaWeb/testTag.jsp?name=%E7%8E%8B&a=1&b=88 -->
+    <atguigu:max num2="${param.a }" num1="${param.b}"/>
+    <br>
     <!-- 可以通过url的方式把值传进来http://localhost:8080/javaWeb/testTag.jsp?name=java -->
     <atguigu:hello value="${param.name}" count="5"/>
+    
 </body>
 </html> 

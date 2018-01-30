@@ -6,7 +6,6 @@
   <packaging>war</packaging>
   
   
-  
   <dependencies>
          <!-- 因为新建的是maven的工程，ecilpse还认为其实java工程，所以没导入tomcat运行时环境，所以必须加这两个依赖的包，provided范围一定不能写错。不然无法运行 -->
         <dependency>
