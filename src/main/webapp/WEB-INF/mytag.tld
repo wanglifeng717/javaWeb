@@ -85,12 +85,29 @@
     </tag>
     
      <tag>
-        <name>PrintUpperTag.java</name>
+        <name>PrintUpperTag</name>
         <tag-class>com.tongji.tag.PrintUpperTag</tag-class>
         <body-content>scriptless</body-content>
 
         <attribute>
             <name>time</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!-- 自己实现的foreach -->
+    <tag>
+        <name>forEach</name>
+        <tag-class>com.tongji.tag.ForEachTag</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
