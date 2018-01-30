@@ -83,5 +83,17 @@
         <body-content>scriptless</body-content>
     
     </tag>
+    
+     <tag>
+        <name>PrintUpperTag.java</name>
+        <tag-class>com.tongji.tag.PrintUpperTag</tag-class>
+        <body-content>scriptless</body-content>
+
+        <attribute>
+            <name>time</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>  

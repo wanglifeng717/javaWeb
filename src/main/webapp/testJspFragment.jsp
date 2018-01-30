@@ -11,5 +11,8 @@
 <body>
 
  <atguigu:TestJspFragment>helloworld</atguigu:TestJspFragment>
+ <br>
+ <atguigu:PrintUpperTag.java time="7">wanglifeng</atguigu:PrintUpperTag.java>
+
 </body>
 </html>
