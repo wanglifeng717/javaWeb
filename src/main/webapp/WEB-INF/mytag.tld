@@ -112,5 +112,42 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <!-- 父标签和子标签的实现 -->
+    <tag>
+        <name>parentTag</name>
+        <tag-class>com.tongji.parentTag.ParentTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    
+    <tag>
+        <name>sonTag</name>
+        <tag-class>com.tongji.parentTag.SonTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <!-- 自己实现的choose标签 -->
+    <tag>
+        <name>choose</name>
+        <tag-class>com.tongji.parentTag.Choose</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    
+    <tag>
+        <name>when</name>
+        <tag-class>com.tongji.parentTag.When</tag-class>
+        <body-content>scriptless</body-content>
+        
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>otherwise</name>
+        <tag-class>com.tongji.parentTag.Otherwise</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    
 
 </taglib>  

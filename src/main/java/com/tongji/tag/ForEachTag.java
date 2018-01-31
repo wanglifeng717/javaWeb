@@ -39,7 +39,7 @@ public class ForEachTag  extends SimpleTagSupport{
 			for(Object obj: items){
 		//		* 把正在遍历的对象放入到 pageContext 中, 键: var, 值: 正在遍历的对象. 
 				getJspContext().setAttribute(var, obj);
-				
+			
 				//把标签体的内容直接输出到页面上. 
 				getJspBody().invoke(null); 
 			}

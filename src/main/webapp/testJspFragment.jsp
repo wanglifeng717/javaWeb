@@ -37,5 +37,25 @@
  <atguigu:forEach items="${requestScope.customers}" var="cust">
      ${cust.id } -- ${cust.name}
  </atguigu:forEach>
+ 
+ <br>
+ <!-- 使用父标签实现等问题 -->
+ <!-- 父标签打印name到控制台.  -->
+    <atguigu:parentTag>
+        <!-- 子标签以父标签的标签体存在,  子标签把父标签的name属性打印到 JSP 页面上.  -->
+        <atguigu:sonTag/>
+    </atguigu:parentTag>
+   
+   <br>
+   <br>
+  <!-- 自己实现的choose标签 --> 
+  <!-- 注意>20}之间不能有空格。因为是Boolean类型的 -->
+  <atguigu:choose>
+    <atguigu:when test="${param.age > 20}">大学毕业</atguigu:when>
+    <atguigu:when test="${param.age > 18}">高中毕业</atguigu:when>
+    <atguigu:otherwise>没有毕业</atguigu:otherwise>
+  </atguigu:choose>
+    
+    
 </body>
 </html>
