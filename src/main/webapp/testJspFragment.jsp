@@ -3,9 +3,11 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://www.atguigu.com/mytag/core" prefix="atguigu" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -56,6 +58,13 @@
     <atguigu:otherwise>没有毕业</atguigu:otherwise>
   </atguigu:choose>
     
+  <br>
+  <br>
+  <!-- 使用自带的EL函数 -->
+  ${fn:length(param.name)}
+ 
+  <!-- 使用自己定义的EL函数 -->
+  ${atguigu:concat(param.name1,param.name2)}
     
 </body>
 </html>
