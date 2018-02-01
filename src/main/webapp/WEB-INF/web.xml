@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  
+  <context-param>
+    <param-name>encoding</param-name>
+    <param-value>UTF-8</param-value>
+  </context-param>
+  
   <context-param>
     <param-name>password</param-name>
     <param-value>1234</param-value>
@@ -35,5 +41,14 @@
   <filter-mapping>
     <filter-name>NoCacheFilter</filter-name>
     <url-pattern>/cache/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>EncodingFilter</display-name>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>com.tongji.encodingfilter.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/encoding/*</url-pattern>
   </filter-mapping>
 </web-app>
