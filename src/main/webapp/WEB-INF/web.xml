@@ -27,4 +27,13 @@
     <filter-name>PasswordFilter</filter-name>
     <url-pattern>/hello.jsp</url-pattern>
   </filter-mapping>
+  <filter>
+    <display-name>NoCacheFilter</display-name>
+    <filter-name>NoCacheFilter</filter-name>
+    <filter-class>com.tongji.nocachefilter.NoCacheFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>NoCacheFilter</filter-name>
+    <url-pattern>/cache/*</url-pattern>
+  </filter-mapping>
 </web-app>
