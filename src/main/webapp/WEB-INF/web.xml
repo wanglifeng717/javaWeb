@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <servlet>
-    <description></description>
-    <display-name>CustomerServlet</display-name>
-    <servlet-name>CustomerServlet</servlet-name>
-    <servlet-class>com.tongji.servlet.CustomerServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CustomerServlet</servlet-name>
-    <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>InitServlet</servlet-name>
-    <servlet-class>com.tongji.servlet.InitServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>1234</param-value>
+  </context-param>
+  <filter>
+    <display-name>UsernameFilter</display-name>
+    <filter-name>UsernameFilter</filter-name>
+    <filter-class>com.tongji.filter.UsernameFilter</filter-class>
+    <init-param>
+      <description></description>
+      <param-name>username</param-name>
+      <param-value>tom</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UsernameFilter</filter-name>
+    <url-pattern>/hello.jsp</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>PasswordFilter</display-name>
+    <filter-name>PasswordFilter</filter-name>
+    <filter-class>com.tongji.filter.PasswordFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PasswordFilter</filter-name>
+    <url-pattern>/hello.jsp</url-pattern>
+  </filter-mapping>
 </web-app>
