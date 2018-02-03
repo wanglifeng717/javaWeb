@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  
-  <!-- 用户信息放入到 session 中的键的名字 -->
   <context-param>
     <param-name>userSessionKey</param-name>
     <param-value>USERSESSIONKEY</param-value>
   </context-param>
-  
-  <!-- 若未登录, 需重定向的页面 -->
   <context-param>
     <param-name>rediretPage</param-name>
     <param-value>/login/login.jsp</param-value>
   </context-param>
-  
-  <!-- 不需要拦截(或检查)的 URL 列表 -->
   <context-param>
     <param-name>uncheckedUrls</param-name>
     <param-value>/login/a.jsp,/login/list.jsp,/login/login.jsp,/login/doLogin.jsp,/login/b.jsp</param-value>
   </context-param>
-  
+  <filter>
+    <display-name>LoginFilter</display-name>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.tongji.login.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/login/*</url-pattern>
+  </filter-mapping>
   <context-param>
     <param-name>encoding</param-name>
     <param-value>UTF-8</param-value>
@@ -68,13 +70,14 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/encoding/*</url-pattern>
   </filter-mapping>
-  <filter>
-    <display-name>LoginFilter</display-name>
-    <filter-name>LoginFilter</filter-name>
-    <filter-class>com.tongji.login.LoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>LoginFilter</filter-name>
-    <url-pattern>/login/*</url-pattern>
-  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuthorityServlet</display-name>
+    <servlet-name>AuthorityServlet</servlet-name>
+    <servlet-class>com.tongji.authority.AuthorityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorityServlet</servlet-name>
+    <url-pattern>/authorityServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
