@@ -80,4 +80,23 @@
     <servlet-name>AuthorityServlet</servlet-name>
     <url-pattern>/authorityServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.tongji.authority.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>AuthorityFilter</display-name>
+    <filter-name>AuthorityFilter</filter-name>
+    <filter-class>com.tongji.authority.AuthorityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthorityFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
 </web-app>
