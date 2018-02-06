@@ -7,10 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <a href="upload.jsp">文件的上传</a>
+    <!-- 静态下载 -->
+    <a href="xyz.txt">download xyz.txt</a>
+    
     <br>
     <br>
     
-    <a href="download.jsp">文件的下载</a>
+    <a href="test.jsp">download test.jsp</a>
+    
+    <br>
+    <br>
+    
+    <a href="downloadServlet">DownLoad abcd.pptx</a>
 </body>
 </html>

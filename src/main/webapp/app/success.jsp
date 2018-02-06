@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form action="uploadServlet" method="post" enctype="multipart/form-data">
-        file:<input type="file" name="file"/>
-        <br> <br>
-        Desc: <input type="text" name="desc"/>
-        <br> <br>
-        <input type="submit" value="submit"/>
-    </form>
+	
+	<h4>文件上传成功!</h4>
+	
 </body>
 </html>
